@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainPage">
+
+    <!-- Ana İçerik Alanı -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@drawable/shape_toolbar02">
+
+            <!-- Navigation Drawer'ı Açacak Buton -->
+            <ImageButton
+                android:id="@+id/drawer_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_white"
+                android:background="@color/transparent"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:onClick="openDrawer" />
+
+            <!-- Başlık -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+        <!-- RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Cards"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/topBar"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/users_card" />
+
+        <!-- Bottom Navigation -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/bottom_bar_menu"
+            android:background="?android:attr/windowBackground"
+            app:itemIconTint="@color/nav_item_bar"
+            app:itemTextColor="@color/nav_item_bar"/>
+
+    </RelativeLayout>
+
+    <!-- Drawer Layout -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
+
+    <!--
+       <LinearLayout
+           android:id="@+id/buttomBar"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_alignParentBottom="true"
+           android:background="@color/purple_500"
+           >
+           <Button
+               android:id="@+id/search"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Search"
+               android:textSize="15sp"
+               android:textStyle="bold"
+               android:drawableTop="@drawable/ic_search_white"
+               android:layout_weight="1"/>
+           <Button
+               android:id="@+id/toReadList"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="To Read List"
+               android:textSize="15sp"
+               android:textStyle="bold"
+               android:drawableTop="@drawable/ic_will_read_list"
+               android:layout_weight="1"/>
+           <Button
+               android:id="@+id/favorite"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Favorite"
+               android:textSize="15sp"
+               android:textStyle="bold"
+               android:drawableTop="@drawable/ic_favorite_white"
+               android:layout_weight="1"/>
+
+
+
+
+       </LinearLayout> -->
+
+
+
+
